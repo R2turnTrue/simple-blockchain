@@ -65,8 +65,20 @@ function registerChain() { // 체인 등록 버튼을 눌렀을 때
     const merkleInput = document.getElementById('merkle')
     const difficultyInput = document.getElementById('difficulty')
 
+    const lastBlockHash = blocks.length > 0 ? blocks[blocks.length - 1].hash : ''
+
     // 화면에 블록 내용, 논스, 해시, 머클 루트, 난이도를 출력함
-    zone.innerHTML += `${content.value} - ${nonceInput.value} - ${hashInput.value} - ${merkleInput.value} - ${difficultyInput.value}<br/><br/>`
+    zone.innerHTML += `
+            <tr>
+                <td>${content.value}</td>
+                <td>${nonceInput.value}</td>
+                <td>${hashInput.value}</td>
+                <td>${merkleInput.value}</td>
+                <td>${difficultyInput.value}</td>
+                <td>${new Date().toISOString()}</td>
+                <td>${lastBlockHash}</td>
+            </tr>
+        `
 
     blocks.push({
         content: content.value,
