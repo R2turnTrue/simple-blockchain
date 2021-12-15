@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain</title>
+    <script src="sha256.js"></script> <!-- SHA256 알고리즘 해시 -->
+    <script src="main.js"></script>
+</head>
+<body>
+    블록내용: <input id="content" type="text" placeholder="블록 내용(데이터 상태 변화)" onkeydown="updateHash()"/><br/>   <!-- 블록의 내용 -->
+    해시: <input id="hash" type="text" placeholder="해시" readonly/><br/>                                           <!-- 해시 값 표시(자동생성이기 때문에 클릭 비활성화) -->
+    머클 루트: <input id="merkle" type="text" placeholder="머클 루트" readonly/><br/>                                     <!-- 머클 루트(자동생성이기 때문에 클릭 비활성화) -->
+    논스: <input id="nonce" type="number" placeholder="논스(Nonce)" value="1" onchange="updateHash()"/><br/>         <!-- 논스(기본값1) -->
+    난이도: <input id="difficulty" type="number" placeholder="난이도" value="1" onchange="updateHash()"><br/>          <!-- 난이도(기본값1) -->
+    <button id="registerChain" onclick="registerChain()" disabled>체인 등록</button>                           <!-- 체인 등록 버튼(초기에는 당연히 난이도와 해시의 조건이 불만족해 비활성화) -->
+    <button onclick="mine()">채굴</button><br/>                                                                <!-- 채굴 버튼 -->
+
+    <div id="zone">
+    
+    </div>
+</body>
+</html>
